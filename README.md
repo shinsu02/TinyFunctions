@@ -1,4 +1,6 @@
-![logo](https://user-images.githubusercontent.com/53488838/90643294-63640280-e26e-11ea-8a45-ed11937ac3bb.png =550x)
+<div>
+<img src="https://user-images.githubusercontent.com/53488838/90643294-63640280-e26e-11ea-8a45-ed11937ac3bb.png" height="150">
+</div>
 
 # 소개
 ***시간 절약! 손도 깔끔! 즐겁다!***
