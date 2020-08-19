@@ -1,5 +1,5 @@
-// SomeTinyFunctions
-// By Haswell (shinsu02@gmail.com, GitHub : shinsu02)
+// TinyFunctions
+// Haswell 제작 (shinsu02@gmail.com, GitHub : shinsu02)
 
 // 무작위 정수
 module.exports.random = (l, o) => {
