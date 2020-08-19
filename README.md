@@ -1,5 +1,5 @@
 <div>
-<img src="https://user-images.githubusercontent.com/53488838/90643294-63640280-e26e-11ea-8a45-ed11937ac3bb.png" height="150">
+<img src="https://user-images.githubusercontent.com/53488838/90651212-b8584680-e277-11ea-8a7b-b281069056ed.png" height="150">
 </div>
 
 # 소개
