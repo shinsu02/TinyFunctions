@@ -15,7 +15,7 @@ JavaScript 및 Node.JS 환경에서 사용할 수 있는 몇 가지의 작은 �
 
 ## 사용 방법
 ``` js
-const tfn = require('./tinyFunctions.js');
+const tinyFunctions = require('./tinyFunctions.js');
 ```
 그냥 데워서 대접하세요!
 
