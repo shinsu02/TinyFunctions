@@ -146,7 +146,7 @@ incobj(o, 42); // 'third 반환
 ```
 
 
-## calctime
+### calctime
 
 주어진 문자열을 시간으로 변환합니다.
 
