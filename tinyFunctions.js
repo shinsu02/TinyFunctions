@@ -45,3 +45,20 @@ module.exports.totime = (t, fr) => {
     for (let i in v) fm = fm.replace(new RegExp(i, 'g'), v[i]);
     return fm;
 };
+
+// 배열 페이지
+module.exports.ArrayPage = class {
+    constructor(t, s) {
+        if (!t || t.constructor !== Array || !s || Number.isNaN(parseInt(s))) return undefined;
+        this.array = t;
+        this.pageSize = parseInt(s);
+        this.maxPage = Number.isInteger(this.array.length / this.pageSize) ? parseInt(this.array.length / this.pageSize) : parseInt(this.array.length / this.pageSize) + 1;
+        return this;
+    };
+    page(n) {
+        if (typeof n !== 'undefined' && Number.isNaN(parseInt(n))) return undefined;
+        const p = this.array.slice(parseInt(this.pageSize * n), parseInt(this.pageSize * ( n + 1 )));
+        p.pageNumber = n;
+        return p.length ? p : undefined;
+    };
+};
