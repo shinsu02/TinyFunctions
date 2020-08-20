@@ -39,8 +39,8 @@ random(l, o);
 | o | 선택 | Number | Number `0` | 오프셋 |
 
 ``` js
-random(100); // 0부터 99사이의 정수를 출력
-random(100, 1); // 1부터 100사이의 정수를 출력
+random(100); // 0부터 99사이의 정수를 반환
+random(100, 1); // 1부터 100사이의 정수를 반환
 ```
 
 
@@ -58,7 +58,7 @@ ransel(t);
 
 ``` js
 const t = [ 'Hi', 'i', 'am', 'a', 'array!' ];
-ransel(t); // 'Hi', 'i', 'am', 'a', 'array!' 중 하나
+ransel(t); // 'Hi', 'i', 'am', 'a', 'array!' 중 하나를 반환
 ```
 
 
@@ -76,9 +76,9 @@ ranchar(lr, sh);
 | sh | 선택 | String | String `1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ` | 문자표 |
 
 ``` js
-ranchar(); // 1, 2, 3, ~, a, b, c, ~, X, Y, Z로 이루어진 10자리의 무작위 문자열
-ranchar(2048); // 1, 2, 3, ~, a, b, c, ~, X, Y, Z로 이루어진 2048자리의 무작위 문자열
-ranchar(42, 'ㄱㄴㄷㄹ'); // ㄱ, ㄴ, ㄷ, ㄹ로 이루어진 42자리의 무작위 문자열
+ranchar(); // 1, 2, 3, ~, a, b, c, ~, X, Y, Z로 이루어진 10자리의 무작위 문자열 반환
+ranchar(2048); // 1, 2, 3, ~, a, b, c, ~, X, Y, Z로 이루어진 2048자리의 무작위 문자열 반환
+ranchar(42, 'ㄱㄴㄷㄹ'); // ㄱ, ㄴ, ㄷ, ㄹ로 이루어진 42자리의 무작위 문자열 반환
 ```
 
 
@@ -99,8 +99,8 @@ interval(t1, t2, fr);
 *형식에 대한 설명은 아래 `공통 사항`을 참고해 주세요.*
 
 ``` js
-interval(Date.now() - 1000, Date.now()); // 0d - 0° 0' 1.0" 출력
-interval(Date.now() - 60000, Date.now(), 'MM분 = ss초'); // 1분 = 60초 출력
+interval(Date.now() - 1000, Date.now()); // 0d - 0° 0' 1.0" 반환
+interval(Date.now() - 60000, Date.now(), 'MM분 = ss초'); // 1분 = 60초 반환
 ```
 
 
@@ -120,9 +120,50 @@ totime(t, fr);
 *형식에 대한 설명은 아래 `공통 사항`을 참고해 주세요.*
 
 ``` js
-totime('1000'); // 0:0:1.0 출력
-totime(60000, 'MM분 = ss초'); // 1분 = 60초 출력
+totime('1000'); // 0:0:1.0 반환
+totime(60000, 'MM분 = ss초'); // 1분 = 60초 반환
 ```
+
+
+### incobj
+
+객체에서 특정 값이 포함되어 있는 키의 이름을 반환합니다.
+
+``` js
+incobj(t, k);
+```
+
+| 매개변수 | 필수 여부 | 종류 | 기본값 | 설명 |
+| -------- | --------- | ---- | ------ | ---- |
+| t | 필수 | Object | *없음* | 대상 객체 |
+| k | 필수 | Any | *없음* | 검색 기준 |
+
+``` js
+const o = { first: 'foo', second: [ 'bar' ], third: 42 };
+incobj(o, 'foo'); // 'first' 반환
+incobj(o, 'bar'); // 'second' 반환
+incobj(o, 42); // 'third 반환
+```
+
+
+## calctime
+
+주어진 문자열을 시간으로 변환합니다.
+
+```js
+calctime(t);
+```
+
+| 매개변수 | 필수 여부 | 종류 | 기본값 | 설명 |
+| -------- | --------- | ---- | ------ | ---- |
+| t | 필수 | String | *없음* | 대상 문자열 |
+
+``` js
+calctime('1분'); // 60000 반환
+calctime('1일 1일'); // 172800000 반환
+calctime('72초53분99일2시간 1밀리초'); // 8564052001 반환
+```
+
 
 ### Class: ArrayPage
 
@@ -140,8 +181,8 @@ new ArrayPage(t, s);
 ``` js
 const a = [ 'Hi!', 'I', 'am', 'a', 'array!', 'foo', 'bar', 'Hello, ', 'world!', 'hahaha' ];
 const ap = new ArrayPage(a, 3); // 배열 a를 한 페이지당 3개의 아이템 기준으로 나눔
-ap.page(0); // 0번째 페이지 출력 :: [ 'Hi!', 'I', 'am' ]
-ap.page(1); // 1번째 페이지 출력 :: [ 'a', 'array!', 'foo' ]
+ap.page(0); // 0번째 페이지 반환 :: [ 'Hi!', 'I', 'am' ]
+ap.page(1); // 1번째 페이지 반환 :: [ 'a', 'array!', 'foo' ]
 ```
 
 

@@ -62,3 +62,45 @@ module.exports.ArrayPage = class {
         return p.length ? p : undefined;
     };
 };
+
+// 객체 값에 포함 여부
+module.exports.incobj = (t, k) => {
+    if (!t || t.constructor !== Object || !k) return undefined;
+    let r;
+    for (let i in t) {
+        if (JSON.stringify(t[i]).includes(JSON.stringify(k))) {
+            r = i;
+            break;
+        };
+    };
+    return r;
+};
+
+// 시간 계산
+module.exports.calctime = (t) => {
+    if (!t || t.constructor !== String) return undefined;
+    const unitStd = {
+        days: [ '일', 'd', 'days', 'day' ],
+        hours: [ '시간', '시', 'h', 'hours', 'hour' ],
+        minutes: [ '분', 'm', 'minutes', 'minute' ],
+        seconds: [ '초', 's', 'seconds', 'second' ],
+        milliseconds: [ '밀리초', '밀리', 'ms', 'milli', 'milliseconds', 'millisecond' ]
+    };
+    const calculateStd = {
+        days: (x) => Math.floor(x * 1000 * 60 * 60 * 24),
+        hours: (x) => Math.floor(x * 1000 * 60 * 60),
+        minutes: (x) => Math.floor(x * 1000 * 60),
+        seconds: (x) => Math.floor(x * 1000),
+        milliseconds: (x) => Math.floor(x)
+    };
+    const timeRaw = t.split(/ +/g).join('').split(/\D/).filter(x => x.length).map(x => parseInt(x));
+    const unitRaw = t.split(/ +/g).join('').split(/\d/).filter(x => x.length);
+    let time = 0;
+    for (const i in unitRaw) {
+        const unit = unitRaw[i];
+        if (!timeRaw[i]) break;
+        if (!Object.values(unitStd).find(x => x.includes(unit))) continue;
+        time = time + calculateStd[this.incobj(unitStd, unit)](timeRaw[i]);
+    };
+    return time;
+};
