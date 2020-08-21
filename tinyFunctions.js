@@ -47,9 +47,9 @@ module.exports.calcTime = (t) => {
     return time;
 };
 
-// 배열 비교
-module.exports.compareArr = (t1, t2) => {
-    if (!t1 || t1.constructor !== Array || !t2 || t2.constructor !== Array) return undefined;
+// 개체 비교
+module.exports.compare = (t1, t2) => {
+    if (typeof t1 === 'undefined' || typeof t2 === 'undefined') return undefined;
     return JSON.stringify(t1) === JSON.stringify(t2);
 };
 
